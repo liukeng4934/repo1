@@ -331,7 +331,7 @@ Status IsLoopList(LinkedList L)
 		{
 			LinkedList slow,fast;//Ö¸ÕëÈüÅÜ
 			slow=fast=L;
-			while(slow->next!=NULL&&fast!=NULL&&fast->next!=NULL)
+			while(slow->next!=NULL&&fast!=NULL&&fast->next->next!=NULL)
 				{
 					slow=slow->next;
 					fast=fast->next->next;
