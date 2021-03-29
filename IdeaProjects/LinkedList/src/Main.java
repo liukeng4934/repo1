@@ -4,7 +4,7 @@ public class Main {
         LNode mid=null;//接收中间节点
         boolean flag;//判断方法执行是否成功
         LNode head=null;
-        LNode p=null;
+        LNode p;
         int num;
        // Scanner sc=new Scanner(System.in);
         while(true){
@@ -19,20 +19,23 @@ public class Main {
                 case 2:
                     System.out.println("请输入要插入的节点位置");
                     num=Method.InputNum();
-                    p=Method.GetLnode(head,num);
+                    p=Method.GetLNode(head,num);
                     if(p!=null) {
                         LNode q = new LNode();
                         System.out.println("请输入插入节点的数据");
                         q.data = Method.InputData();
                         flag = Method.InsertList(p, q);
                         Method.Judge(flag);
+                    }else {
+                        System.out.println("未找到所插节点位置");
+                        Method.Judge(false);
                     }
                     break;
 
                     case 3:
                         System.out.println("请输入你要删除的节点位置");
                         num=Method.InputNum();
-                        p=Method.GetLnode(head,num);
+                        p=Method.GetLNode(head,num);
                         flag=Method.DeleteList(p);
                         Method.Judge(flag);
                         break;

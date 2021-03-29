@@ -22,7 +22,7 @@ public class Method {
         System.out.println("请输入你的选择:");
     }
 
-//获取链表数据
+//输入链表数据
 public static int InputData(){
     int num;
     Scanner sc=new Scanner(System.in);
@@ -35,7 +35,7 @@ public static int InputData(){
     return num;
 }
 
-    //获取用户输入(大于0的整数
+    //获取用户输入(大于等于0的整数
     public static int InputNum(){
         int num;
         Scanner sc=new Scanner(System.in);
@@ -46,7 +46,7 @@ public static int InputData(){
         }
         num=sc.nextInt();
         if(num<0){
-            System.out.println("数据不符合，请输入大于0的整数");
+            System.out.println("数据不符合，请输入大于等于0的整数");
             num=Method.InputNum();
         }
         return num;
@@ -61,7 +61,7 @@ public static int InputData(){
 
 
 //插入节点
-    public static Boolean InsertList(LNode p,LNode q){
+    public static boolean InsertList(LNode p,LNode q){
         if(p==null){
             System.out.println("节点为空");
             return false;
@@ -91,6 +91,9 @@ public static int InputData(){
         if(p==null){
             System.out.println("节点为空");
             return false;
+        }else if (p.next==null){
+            System.out.println("下一个节点为空");
+            return  false;
         }
         else {
             e=p.next.data;//取出删除的数据
@@ -123,14 +126,14 @@ public static void TraverseList(LNode L){
 }
 
 //获取链表节点
-    public static LNode GetLnode(LNode L,int index){
+    public static LNode GetLNode(LNode L,int index){
         LNode p=L;
         if(L==null){
             System.out.println("未初始化链表");
             return null;
         }else if (L.next==null){
             System.out.println("链表为空");
-            return null;
+            return L;
         }else {
             for (;index>0;--index){
                 p=p.next;
@@ -138,8 +141,8 @@ public static void TraverseList(LNode L){
                     return null;
                 }
             }
+            return p;
         }
-        return p;
     }
 
 //查询节点
@@ -232,7 +235,7 @@ public static boolean ReverseList(LNode L){
             fast=slow=L;
             while (fast!=null){
                 if(fast.next==null){
-                    fast=fast.next;
+                    fast=null;
                 }
                 else {
                     fast=fast.next.next;
