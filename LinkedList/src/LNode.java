@@ -7,7 +7,7 @@ public class LNode {
     LNode(int data){
         this.data=data;
     }
-    LNode(int data,LNode next){
+    LNode(int data, LNode next){
         this.data=data;
         this.next=next;
     }

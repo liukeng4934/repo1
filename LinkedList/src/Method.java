@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Method {
@@ -7,6 +6,7 @@ public class Method {
     public static void Menu(){
         System.out.println("------------------------------");
         System.out.println("单向链表操作选项");
+        System.out.println("0.退出程序");
         System.out.println("1.初始化链表");
         System.out.println("2.插入节点");
         System.out.println("3.删除节点");
@@ -17,15 +17,14 @@ public class Method {
         System.out.println("8.找到链表的中间节点并返回");
         System.out.println("9.调换奇偶顺序");
         System.out.println("10.添加链表");
-        System.out.println("11.退出");
-        //System.out.println("反转链表（递归");
+        System.out.println("11.销毁链表");
         System.out.println("------------------------------");
         System.out.println("请输入你的选择:");
     }
 
 //获取链表数据
 public static int InputData(){
-    int num=0;
+    int num;
     Scanner sc=new Scanner(System.in);
     while(!sc.hasNextInt()){
         sc.next();
@@ -38,7 +37,7 @@ public static int InputData(){
 
     //获取用户输入(大于0的整数
     public static int InputNum(){
-        int num=0;
+        int num;
         Scanner sc=new Scanner(System.in);
         while(!sc.hasNextInt()){
             sc.next();
@@ -46,7 +45,7 @@ public static int InputData(){
             System.out.println("请输入你的选择:");
         }
         num=sc.nextInt();
-        if(num<=0){
+        if(num<0){
             System.out.println("数据不符合，请输入大于0的整数");
             num=Method.InputNum();
         }
@@ -77,7 +76,7 @@ public static int InputData(){
 
 //判断操作是否成功
     public static void Judge(boolean flag){
-        if(flag==true){
+        if(flag){
             System.out.println("操作成功");
         }
         else {
@@ -118,21 +117,21 @@ public static void TraverseList(LNode L){
                 p=p.next;
                 i++;
             }
+            System.out.println();
             System.out.println("链表遍历完成");
         }
 }
 
 //获取链表节点
     public static LNode GetLnode(LNode L,int index){
-        LNode p;
+        LNode p=L;
         if(L==null){
             System.out.println("未初始化链表");
-            return L;
+            return null;
         }else if (L.next==null){
             System.out.println("链表为空");
-            return L;
+            return null;
         }else {
-            p=L;
             for (;index>0;--index){
                 p=p.next;
                 if(p==null){
@@ -216,6 +215,82 @@ public static boolean ReverseList(LNode L){
             }
             System.out.println("该链表不成环");
             return false;
+        }
+    }
+
+
+    //找到中间节点并返回
+    public static LNode FindMidLNode(LNode L){
+        if (L==null){
+            System.out.println("未初始化链表");
+            return null;
+        }else if (L.next==null){
+            System.out.println("链表为空");
+            return null;
+        }else {
+            LNode fast,slow;
+            fast=slow=L;
+            while (fast!=null){
+                if(fast.next==null){
+                    fast=fast.next;
+                }
+                else {
+                    fast=fast.next.next;
+                }
+                slow=slow.next;
+            }
+            return slow;
+        }
+    }
+
+//调换奇偶顺序
+public static LNode ReverseEvenList(LNode L){
+        if (L==null){
+            System.out.println("未初始化链表");
+            return null;
+        }else if (L.next==null){
+            System.out.println("链表为空");
+            return L;
+        }else {
+            LNode cur=L.next;
+            LNode p;
+            LNode head2=new LNode();//新建一个头结点，用来链接链表
+            head2.next=null;
+            LNode q=head2;
+            while (cur!=null&&cur.next!=null){
+                p=cur;
+                q.next=p.next;
+                q=q.next;
+                cur=cur.next.next;//移后两位，反转前面的2个节点
+                q.next=p;
+                q=q.next;
+            }
+            q.next=cur;
+            return head2;
+        }
+}
+
+//添加节点
+    public static boolean AddLNode(LNode L,int num){
+        LNode q,p=null;
+        if (L==null){
+            System.out.println("未初始化链表");
+            return false;
+        }else {
+            for (q=L;q!=null;q=q.next){
+                p=q;
+            }
+            //p是传入链表中的最后一个节点
+            while (num>0){
+                q=new LNode();
+                q.next=null;
+                p.next=q;
+                p=q;
+                System.out.println("请输入节点数据");
+                q.data=Method.InputData();
+                num--;
+            }
+            return true;
         }
     }
 

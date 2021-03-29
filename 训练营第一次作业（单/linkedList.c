@@ -483,7 +483,7 @@ void AddNode(LinkedList *L,int num)
 //获取链表节点
 LNode* GetNode(LinkedList *L,int index)
 {
-	LNode *p;
+	LNode *p=*L;
 	if(*L==NULL)
 		{
 			printf("未初始化链表\n");
