@@ -156,6 +156,10 @@ Status DeleteList(LNode *p, ElemType *e)
 			printf("节点为空\n");
 			return ERROR;
 		}
+		else if(p.next==NULL){
+			printf("下一个节点为空\n");
+			return ERROR; 
+		} 
 	else
 		{
 			*e=(p->next)->data;//先取出数据
@@ -487,7 +491,7 @@ LNode* GetNode(LinkedList *L,int index)
 	if(*L==NULL)
 		{
 			printf("未初始化链表\n");
-			return *L;
+			return NULL;
 		}
 	else if((*L)->next==NULL)
 		{
@@ -514,6 +518,7 @@ LNode* GetNode(LinkedList *L,int index)
 						return NULL;
 					}
 				}
+				return p;
 		}
-	return p;
+
 }

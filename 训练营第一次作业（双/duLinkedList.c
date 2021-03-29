@@ -14,7 +14,7 @@
 //获取链表节点
 DuLNode* GetNode(DuLinkedList *L,int index)
 {
-	DuLNode *p;
+	DuLNode *p=*L;
 	if(*L==NULL)
 		{
 			printf("未初始化链表\n");
@@ -30,7 +30,7 @@ DuLNode* GetNode(DuLinkedList *L,int index)
 			p=*L;
 			while(1)
 				{
-					if(index<=0)
+					if(index<0)
 						{
 							printf("你输入的数据不符合(请输入大于0的整数)");
 							index=InputPick();
@@ -45,8 +45,9 @@ DuLNode* GetNode(DuLinkedList *L,int index)
 						return NULL;
 					}
 				}
+				return p;
 		}
-	return p;
+
 }
 
 //判断操作是否成功
@@ -214,15 +215,21 @@ Status InsertAfterList_DuL(DuLNode *p, DuLNode *q)
 //删除节点（ 把p后面的第一个节点删除，并输出删除的节点数据
 Status DeleteList_DuL(DuLNode *p, ElemType *e)
 {
-	DuLinkedList q;
+	DuLinkedList q;//记录要删除的节点，释放 
 	if(p==NULL)
 		{
 			printf("节点为空\n");
 			return ERROR;
-		}
+		}else if(p->next==NULL){
+			printf("下一个节点为空\n");
+			return ERROR; 
+		} 
 	else
 		{
 			*e=(p->next)->data;//先取出数据
+			if(p->next->next!=NULL){
+				p->next->next->prior=p;//下2个节点都不是空才进行，如果是空指针则不用管
+			}
 			q=p->next;
 			p->next=p->next->next;//p的下个结点等于他的下下个结点
 			free(q);//并且释放空间
@@ -266,7 +273,7 @@ void TraverseList_DuL(DuLinkedList L, void (*visit)(ElemType e))
 		}
 }
 void Visit(ElemType e){
-	printf("<--%d-->",e);
+	printf("%d<-->",e);
 }
 
 
