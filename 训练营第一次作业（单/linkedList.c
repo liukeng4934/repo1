@@ -499,7 +499,7 @@ LNode* GetNode(LinkedList *L,int index)
 			p=*L;
 			while(1)
 				{
-					if(index<=0)
+					if(index<0)
 						{
 							printf("你输入的数据不符合(请输入大于0的整数)");
 							index=InputPick();
