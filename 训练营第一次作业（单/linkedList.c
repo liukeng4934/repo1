@@ -359,10 +359,12 @@ LNode* ReverseEvenList(LinkedList *L)
 	if(*L==NULL)
 		{
 			printf("未初始化链表\n");
+			return NULL;
 		}
 	else if((*L)->next==NULL)
 		{
 			printf("链表为空");
+			return *L;
 		}
 	else
 		{
