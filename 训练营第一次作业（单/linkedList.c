@@ -2,6 +2,13 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+//清屏
+void clear(){	char c;
+				printf("输入任意字符返回菜单\n");
+				scanf("%c",&c);
+				system("cls");
+} 
+
 //判断操作是否成功
 void Judge(Status flag)
 {
@@ -47,19 +54,20 @@ void EmptyBuff()
 
 void Menu()
 {
+	printf("单链表操作选择：\n");
 	printf("----------------------------------\n");
-	printf("1.链表初始化\n");
+	printf("1.链表初始化                        ");
 	printf("2.销毁链表\n");
-	printf("3.插入节点\n");
-	printf("4.删除节点\n");
-	printf("5.遍历链表\n");
+	printf("3.插入节点                          ");
+	printf("4.删除节点\n"); 
+	printf("5.遍历链表                          ");
 	printf("6.查询节点\n");
-	printf("7.反转链表(迭代)\n");
+	printf("7.反转链表(迭代)                    ");
 	//printf("13.反转链表(递归)\n");
 	printf("8.判断链表是否成环\n");
-	printf("9.找链表的中间节点并返回\n");
+	printf("9.找链表的中间节点并返回            ");
 	printf("10.调换奇偶顺序\n");
-	printf("11.添加链表节点\n");
+	printf("11.添加链表节点                     ");
 	printf("12.反转链表(递归)\n");
 	printf("13.退出\n");
 	printf("----------------------------------\n");
@@ -156,7 +164,7 @@ Status DeleteList(LNode *p, ElemType *e)
 			printf("节点为空\n");
 			return ERROR;
 		}
-		else if(p.next==NULL){
+		else if(p->next==NULL){
 			printf("下一个节点为空\n");
 			return ERROR; 
 		} 

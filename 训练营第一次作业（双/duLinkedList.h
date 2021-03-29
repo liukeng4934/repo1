@@ -44,6 +44,7 @@ typedef enum Status {
 } Status;
 
 
+void clear();
 void EmptyBuff();
 int InputPick();
 void Judge(Status flag);

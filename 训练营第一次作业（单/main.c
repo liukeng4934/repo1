@@ -9,16 +9,17 @@ int main() {
 	LinkedList	p,q,mid;
 	LinkedList head=NULL;
 	while(1) {
-		printf("单链表操作选择：\n");
 		Menu();
 		switch(InputPick()) {
 			case 1:
 				flag=InitList(&head);
 				Judge(flag);
+				clear();
 				break;
 
 			case 2:
 				DestroyList(&head);
+			    clear();
 				break;
 
 			case 3:
@@ -32,6 +33,7 @@ int main() {
 				//scanf("%d",&q->data);
 				flag=InsertList(p,q);
 				Judge(flag);
+				clear();
 				break;
 
 			case 4:
@@ -39,10 +41,12 @@ int main() {
 				num=InputPick();
 				p=GetNode(&head,num);
 				DeleteList(p,&E);
+				clear();
 				break;
 
 			case 5:
 				TraverseList(head,visit);
+				clear();
 				break;
 
 			case 6:
@@ -50,24 +54,29 @@ int main() {
 				E=InputPick();
 				flag=SearchList(head,E);
 				Judge(flag);
+				clear();
 				break;
 
 			case 7:
 				flag=ReverseList(&head);
 				Judge(flag);
+				clear();
 				break;
 
 			case 8:
 				flag=IsLoopList(head);
 				Judge(flag);
+				clear();
 				break;
 
 			case 9:
 				mid=FindMidNode(&head);
+				clear();
 				break;
 
 			case 10:
 			    head=ReverseEvenList(&head);
+			    clear();
 				break;
 
 			case 11:
@@ -75,6 +84,7 @@ int main() {
 				num=InputPick();
 				//EmptyBuff();多余 
 				AddNode(&head,num);
+				clear();
 				break;
 
 				case 12:
@@ -83,11 +93,15 @@ int main() {
 					}
 					else 
 					head->next=ReverseList2(head->next);
+					clear();
 					break;
 			case 13:
 			    exit(0);
 				
 				default:
+					printf("无此项操作选择\n"); 
+					clear();
+					printf("请重新输入操作选择\n");
 				 break;
 		}
 	}

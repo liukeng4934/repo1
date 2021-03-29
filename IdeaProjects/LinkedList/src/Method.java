@@ -2,21 +2,30 @@ import java.util.Scanner;
 
 public class Method {
 
+    //清屏
+    public static void clear(){
+        String  c;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("输入任意字符清屏");
+        c=sc.next();
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
+
     //菜单
     public static void Menu(){
         System.out.println("------------------------------");
         System.out.println("单向链表操作选项");
-        System.out.println("0.退出程序");
+        System.out.print("0.退出程序                      ");
         System.out.println("1.初始化链表");
-        System.out.println("2.插入节点");
+        System.out.print("2.插入节点                      ");
         System.out.println("3.删除节点");
-        System.out.println("4.遍历链表");
+        System.out.print("4.遍历链表                      ");
         System.out.println("5.查询节点");
-        System.out.println("6.反转链表");
+        System.out.print("6.反转链表                      ");
         System.out.println("7.判断链表是否成环");
-        System.out.println("8.找到链表的中间节点并返回");
+        System.out.print("8.找到链表的中间节点并返回         ");
         System.out.println("9.调换奇偶顺序");
-        System.out.println("10.添加链表");
+        System.out.print("10.添加链表                     ");
         System.out.println("11.销毁链表");
         System.out.println("------------------------------");
         System.out.println("请输入你的选择:");

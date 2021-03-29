@@ -11,6 +11,14 @@
  */
 
 
+//清屏
+void clear(){
+	char c;
+	printf("输入任意字符清屏\n");
+	scanf("%c",&c);
+	system("cls");
+} 
+
 //获取链表节点
 DuLNode* GetNode(DuLinkedList *L,int index)
 {
@@ -99,16 +107,18 @@ void EmptyBuff()
 //菜单
 void Menu()
 {
-	printf("----------------------------------\n");
-	printf("1.链表初始化\n");
+	char c;
+	printf("双向链表操作选择：\n");
+	printf("---------------------------------------------------------------------\n");
+	printf("1.链表初始化                          ");
 	printf("2.销毁链表\n");
-	printf("3.插入节点(在指点位置前)\n");
+	printf("3.插入节点(在指点位置前)              ");
 	printf("4.插入节点(在指点位置后)\n");
-	printf("5.删除节点(在指点位置后)\n");
+	printf("5.删除节点(在指点位置后)              ");
 	printf("6.遍历链表\n");
-	printf("7.添加链表数据\n");
-	printf("8.退出");
-	printf("----------------------------------\n");
+	printf("7.添加链表数据                        ");
+	printf("8.退出\n");
+	printf("---------------------------------------------------------------------\n");
 }
 //初始化链表
 Status InitList_DuL(DuLinkedList *L)
