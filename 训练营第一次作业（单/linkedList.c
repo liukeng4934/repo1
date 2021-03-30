@@ -38,6 +38,26 @@ int InputPick()
 	sscanf(str,"%d",&pick);
 	return pick;
 }
+
+
+
+//用户只能输入数字加空格或者只有数字的数据 
+int isValid(const char* str)//判断数据是否有效 
+{
+	int isSpaceAppear=0;
+	for(; *str; str++)
+		{
+			
+			if(isspace(*str))		isSpaceAppear=1;
+			//else if(*str=='-') sign=1;//数据为负 多虑了。sscanf会自己判断有没有负号 
+			else if(!isdigit(*str))		return 0;
+			else if(isdigit(*str)&&isSpaceAppear)	return 0;
+		}
+	return 1;
+}
+
+
+
 //清空缓冲区
 void EmptyBuff()
 {
@@ -527,16 +547,4 @@ LNode* GetNode(LinkedList *L,int index)
 
 }
 
-//用户只能输入数字加空格或者只有数字的数据 
-int isValid(const char* str)//判断数据是否有效 
-{
-	int isSpaceAppear=0;
-	for(; *str; str++)
-		{
-			
-			if(isspace(*str))		isSpaceAppear=1;
-			else if(!isdigit(*str))		return 0;
-			else if(isdigit(*str)&&isSpaceAppear)	return 0;
-		}
-	return 1;
-}
+

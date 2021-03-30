@@ -9,7 +9,7 @@ public class Main {
        // Scanner sc=new Scanner(System.in);
         while(true){
             Method.Menu();
-            pick=Method.InputNum();
+            pick=Method.InputPick();
             switch (pick){
 
                 case 0:System.exit(0);
@@ -19,12 +19,12 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("请输入要插入的节点位置");
-                    num=Method.InputNum();
+                    num=Method.InputPick();
                     p=Method.GetLNode(head,num);
                     if(p!=null) {
                         LNode q = new LNode();
                         System.out.println("请输入插入节点的数据");
-                        q.data = Method.InputData();
+                        q.data = Method.InputPick();
                         flag = Method.InsertList(p, q);
                         Method.Judge(flag);
                     }else {
@@ -36,7 +36,7 @@ public class Main {
 
                     case 3:
                         System.out.println("请输入你要删除的节点位置");
-                        num=Method.InputNum();
+                        num=Method.InputPick();
                         p=Method.GetLNode(head,num);
                         flag=Method.DeleteList(p);
                         Method.Judge(flag);
@@ -48,7 +48,7 @@ public class Main {
                         break;
                 case 5:
                     System.out.println("请输入你要查询的节点数据");
-                    num=Method.InputData();
+                    num=Method.InputPick();
                     flag=Method.SearchList(head,num);
                     Method.Judge(flag);
                     Method.clear();
@@ -73,7 +73,7 @@ public class Main {
                     break;
                 case 10:
                     System.out.println("请输入你要添加的节点个数");
-                    num=Method.InputNum();
+                    num=Method.InputPick();
                     flag=Method.AddLNode(head,num);
                     Method.Judge(flag);
                     Method.clear();

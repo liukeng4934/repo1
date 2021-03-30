@@ -1,6 +1,40 @@
 import java.util.Scanner;
 
 public class Method {
+    static String str;
+    static int pick = 0;
+    static Scanner sc = new Scanner(System.in);
+
+
+    //判断数据是否正确
+    public static int isValid(char[] str2) {
+        int isSpace = 0;
+        int i = 0;//遍历字符数组
+        for (; i < str2.length; i++) {
+            if (str2[i] == ' ') isSpace = 1;
+            else if (!(str2[i] <='9') && (str2[i] >='0'))
+                return 0;
+            else if ((str2[i] <='9') && (str2[i] >= '0') && isSpace == 1)
+                return 0;
+        }
+        return 1;
+    }
+
+    //新的输入方法
+    public static int InputPick() {
+        str = sc.nextLine();//一直读取到换行符才算结束
+        char[] str2 = str.toCharArray();
+        if(Method.isValid(str2)==0){
+            System.out.println("你输入的数据不符合，请重新输入");
+            pick=InputPick();
+        }
+        else pick=Integer.parseInt(str.trim());//自己会辨认负数
+        //trim()自己会移除字符串前后多余的空格
+        //pick*=-1;//测试不是负数原因，不用理
+        System.out.println(pick);
+        return pick;
+    }
+
     //菜单
     public static void Menu(){
         System.out.println("------------------------------");
@@ -23,7 +57,7 @@ public class Method {
         return new DuLNode(0,null,null);
     }
 
-
+/*
     //获取链表数据
     public static int InputData_DuL(){
         int num;
@@ -54,7 +88,7 @@ public class Method {
         return num;
     }
 
-
+*/
     //判断操作是否成功
     public static void Judge(boolean flag){
         if(flag){
@@ -148,7 +182,7 @@ public class Method {
                 q.prior=p;
                 p=q;
                 System.out.println("请输入节点数据");
-                q.data=Method.InputData_DuL();
+                q.data=Method.InputPick();
                 num--;
             }
             return true;
@@ -185,13 +219,11 @@ public class Method {
        }
    }
 
-   //清屏
+    //清屏
     public static void clear(){
-        String  c;
-        Scanner sc=new Scanner(System.in);
-        System.out.println("输入任意字符清屏");
-        c=sc.next();
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+        System.out.println("----------清屏----------");
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
 }
