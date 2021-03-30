@@ -1,7 +1,9 @@
 #include "duLinkedList.h"
 #include<stdio.h>
 #include<stdlib.h>
-
+#define MAX_STR_SIZE 1024
+#include<ctype.h>
+int isValid(const char* str);
 /**
  *  @name        : Status InitList_DuL(DuLinkedList *L)
  *	@description : initialize an empty linked list with only the head node
@@ -13,10 +15,7 @@
 
 //清屏
 void clear(){
-	char c;
-	printf("输入任意字符清屏\n");
-	scanf("%c",&c);
-	system("cls");
+	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n");
 } 
 
 //获取链表节点
@@ -72,23 +71,20 @@ void Judge(Status flag)
 }
 
 //输入用户的选择
+//输入选择
 int InputPick()
 {
-	int pick;
-	while(1)
-		{
-			if(	scanf("%d",&pick)==1)
-				{
-					printf("数据输入成功\n");
-					EmptyBuff();
-					break;
-				}
-			else
-				{
-					printf("数据类型不正确，请重新输入(整数类型)\n");
-					EmptyBuff();
-				}
-		}
+	char str[MAX_STR_SIZE]= {0};
+	int pick=0;
+	fgets(str,MAX_STR_SIZE,stdin);//注意，fges会把回车吃进字符串中！！！！！！！！！ 
+	if(!isValid(str))
+	{
+		printf("你输入的数据不符合，请重新输入\n");
+		//EmptyBuff();//把错的数据吃完
+		pick=InputPick();
+	 } 
+	else
+	sscanf(str,"%d",&pick);
 	return pick;
 }
 
@@ -338,7 +334,18 @@ void AddNode(DuLinkedList *L,int num)
 				}
 		}
 }
-
-
+//用户只能输入数字加空格或者只有数字的数据 
+int isValid(const char* str)//判断数据是否有效 
+{
+	int isSpaceAppear=0;
+	for(; *str; str++)
+		{
+			
+			if(isspace(*str))		isSpaceAppear=1;
+			else if(!isdigit(*str))		return 0;
+			else if(isdigit(*str)&&isSpaceAppear)	return 0;
+		}
+	return 1;
+}
 
 

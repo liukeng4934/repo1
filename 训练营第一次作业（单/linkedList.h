@@ -42,7 +42,9 @@ typedef enum Status {
 	SUCCESS
 } Status;
 
-	void clear();
+
+
+void clear();
 LinkedList ReverseList2(LinkedList q);
 LNode* GetNode(LinkedList *L,int index);
 void Judge(Status flag);
