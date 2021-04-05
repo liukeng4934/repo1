@@ -15,7 +15,7 @@ int isValid(const char* str);
 
 //清屏
 void clear(){
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 } 
 
 //获取链表节点
@@ -30,6 +30,7 @@ DuLNode* GetNode(DuLinkedList *L,int index)
 	else if((*L)->next==NULL)
 		{
 			printf("链表为空\n");
+			if(index>0)return NULL;
 			return *L;
 		}
 	else
@@ -174,15 +175,21 @@ void DestroyList_DuL(DuLinkedList *L)
 //插入节点（把q插到p前面
 Status InsertBeforeList_DuL(DuLNode *p, DuLNode *q)
 {
+	
 		if(p==NULL){
 		printf("节点为空\n");
+		return ERROR;
+	}else if(p->prior==NULL){
+		printf("头节点不能插入\n");
 		return ERROR;
 	}
 	else {
 		q->prior=p->prior;
 		p->prior=q;
 		q->next=p;
-		q->prior->next=q;
+		if(q->prior!=NULL) {
+			q->prior->next=q;
+		}
 		printf("插入节点成功\n");
 		return SUCCESS;
 	}
