@@ -29,50 +29,68 @@ int main(){
 				sizes=getNum();
 				flag=initStack(&s,sizes);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 2:
 				flag=isEmptyStack(&s);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 3:
 				flag=getTopStack(&s,&e);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 4:
 				flag=clearStack(&s);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 5:
 				flag=destroyStack(&s);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 6:
 				flag=stackLength(&s,&length);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 7:
 				printf("请输入你进栈数据:\n");
 				data=getNum();
 				flag=pushStack(&s,data);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 8:
 				flag=popStack(&s,&data);
 				Judge(flag);
-				clear();
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 			case 9:
 				exit(0);
 			default: 
-				printf("无此项选择");
-				clear();
+				printf("无此项选择\n");
+				printf("请输入任意数字清屏\n");
+						getNum();
+						system("cls");
 				break;
 		}
 	}

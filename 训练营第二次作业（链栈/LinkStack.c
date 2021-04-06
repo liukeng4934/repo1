@@ -47,7 +47,7 @@ void menu(){
 	printf("6.检测栈长度\n");
 	printf("7.入栈                              ");
 	printf("8.出栈\n");
-	printf("9.退出                              ");
+	printf("9.退出\n");
 }
 
 //输入选择

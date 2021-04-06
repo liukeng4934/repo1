@@ -43,7 +43,11 @@ public class method {
 
     //获取用户数据输入
     public static int getNum(){
-        str = sc.nextLine();//一直读取到换行符才算结束
+        str = sc.nextLine();
+        if(str.equals("")){
+            System.out.println("你输入的数据不符合，请重新输入");
+            pick=getNum();
+        }
         char[] str2 = str.toCharArray();
         if(method.isValid(str2)==0){
             System.out.println("你输入的数据不符合，请重新输入");

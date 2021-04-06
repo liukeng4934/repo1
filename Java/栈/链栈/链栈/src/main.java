@@ -16,32 +16,44 @@ public class main {
                     }
                     flag=method.initLStack(s);
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 2:
                     flag=method.isEmptyLStack(s);
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 3:
                     flag=method.getTopLStack(s,e);
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 4:
                     flag=method.clearLStack(s);
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 5:
                     flag=method.destroyLStack(s);
                     s=null;
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 6:
                     flag=method.LStackLength(s,length);
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 7:
@@ -49,17 +61,23 @@ public class main {
                     data=method.getNum();
                     flag=method.pushLStack(s,data);
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 8:
                     flag=method.popLStack(s,data);
                     method.Judge(flag);
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
                 case 9:
                     System.exit(0);
                 default:
                     System.out.println("无此项选择");
+                    System.out.println("请输入任意数字清屏");
+                    method.getNum();
                     method.clear();
                     break;
             }

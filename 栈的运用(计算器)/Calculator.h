@@ -41,8 +41,9 @@ int Priority(char s);
 int Pop(Stack *S);
 
 
-
-
+void menu();
+int isValid(const char* str);
+int getNum();
 
 
 #endif 
